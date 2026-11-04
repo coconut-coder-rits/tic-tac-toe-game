@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #f8fafc;
+}
+
+h2 {
+    font-size: 20px;
+    color: #94a3b8;
+    min-height: 28px;
+}
+
+/* Board Wrapper & Grid */
+.board-wrapper {
+    position: relative;
+    width: 310px;
+    height: 310px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.cell {
+    background: #1e293b;
+    border: 2px solid #334155;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    user-select: none;
+}
+
+.cell:hover {
+    background: #334155;
+    transform: scale(1.03);
+}
+
+/* Player Colors */
+.cell.x {
+    color: #38bdf8;
+}
+
+.cell.o {
+    color: #fb7185;
+}
+
+/* Strike Line */
+.strike-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#strike-line {
+    display: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: drawLine 0.35s ease forwards;
+}
+
+@keyframes drawLine {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Restart Button */
+button {
+    padding: 12px 28px;
+    background: #3b82f6;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+}
